@@ -27,14 +27,6 @@ const Form = (props) => {
         }
     }
 
-    const pwMatching = (pw1, pw2) => {
-        if(pw1 !== pw2){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     const handleChange = (e) => {
         e.preventDefault();
         if (inputs.firstName.length < 2){
@@ -65,7 +57,7 @@ const Form = (props) => {
             setValidPassword('Correct format')
             setError(false);
         }
-        if(pwMatching(inputs.confirmPassword, inputs.password) === false){
+        if(inputs.confirmPassword !== inputs.password){
             setValidConfPassword('Passwords must match...')
             setError(true);
             console.log("error is true")
@@ -118,7 +110,7 @@ const Form = (props) => {
                     </div>
                     <div className="" style={{ height: '2rem', color: "red"}}>{ validConfPassword? <p><small>{validConfPassword}</small></p>: '' }</div>
                     <div className="d-flex justify-content-center m-1">
-                        <input type="submit" onClick={onChange} value="Submit" />
+                        <input type="submit" onClick={onChange} value="Click to Validate" />
                     </div>
                 </form>
             </span>
